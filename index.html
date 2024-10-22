@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quick Upload Answer Delivered</title>
+    <style>
+        .buttons-container{
+            position:absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .buttons-container button{
+            background: none;
+            border: none;
+            color: black;
+            font-size: 20px;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .buttons-container button:hover{
+                text-decoration: underline;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            margin-top: 150px;
+        }
+
+      
+    </style>
+</head>
+<body>
+
+    <div class="buttons-container">
+        <button>Uploade</button>
+        <button>Explore</button>
+        <button>About Us</button>
+    </div>
+
+    <div class="container">
+        <h1 class="PaginaPrincipala">Upload</h1>
+    </div>
+
+    <div class="rectangle"></div>
+    <div class="second-rectangle"></div>
+
+    <script>
+
+        document.getElementById('answerForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const answer = document.getElementById('answer').value;
+
+            const response = await fetch('/submit-answer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ answer: answer })
+            });
+
+            const result = await response.json();
+            alert(result.message);
+        });
+    </script>
+</body>
+</html>
