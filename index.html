@@ -7,35 +7,60 @@
     <title>Quick Upload Answer Delivered</title>
   </head>
   <body>
+
+    <div class="search-bar-container">
+        <button id="search-button">Căutare</button>
+        <input type="text" id="search-input" placeholder="Caută...">
+    </div>
+
     <div class="buttons-container">
-      <button>Uploadeeeee</button>
-      <button>Explore</button>
-      <button>About Us</button>
+      <a href="Incarc.html" class="button">Încarcă</a>
+      <a href="ads.html" class="button">Exploreza</a>
+      <a href="PaginaDespreNoi.html" class="button">Despre noi</a>
+      <a href="PaginaInregistrare.html" class="button">Inregistreaza-te</a>
+    </div>
+    <div class="overlay-image">
+      <img src="Imagini/scaun.png" alt="Imagine principala" class="overlay-image">
     </div>
 
     <div class="container">
       <h1 class="PaginaPrincipala">Upload</h1>
+      <p class="body">Vânează mai puțin, găsește mai mult, postează-ți dorința!</p>
     </div>
 
-    <div class="rectangle"></div>
-    <div class="second-rectangle"></div>
+    <div class="container2">
+      <div class="cell"><img src="Imagini/Camera 3.png" alt="Imagine1"></div>
+      <div class="cell"><img src="Imagini/Camera 2.png" alt="Imagine2"></div>
+      <div class="cell"><img src="Imagini/Camera 1.png" alt="Imagine3"></div>
+    </div>
+    <div class="container3">
+      <h2 class="h2">Cum functioneaza</h2>
+      <p2 class="p2">BAlbaba</p2>
+      <div class="cellPoza"><img src="Imagini/Camera 2.png" alt="Imagine2"></div>
+    </div>
+    <div class="container4">
+      <a href="Incarc.html" class="butoane-Jos">Încarcă</a>
+      <a href="PaginaExplore.html" class="butoane-Jos">Exploreza</a>
+      <a href="PaginaDespreNoi.html" class="butoane-Jos">Despre noi</a>
+      <a href="PaginaInregistrare.html" class="butoane-Jos">Inregistreaza-te</a>
+    </div>
 
     <script>
-      document
-        .getElementById("answerForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
-          const answer = document.getElementById("answer").value;
 
-          const response = await fetch("/submit-answer", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ answer: answer }),
-          });
+        const searchButton = document.getElementById('search-button');
+        const searchInput = document.getElementById('search-input');
 
-          const result = await response.json();
-          alert(result.message);
-        });
+        searchButton.onclick = function() {
+            
+            if (searchInput.style.width === '200px') {
+                searchInput.style.width = '0';
+                searchInput.style.opacity = '0';
+            } else {
+                searchInput.style.width = '200px'; 
+                searchInput.style.opacity = '1';
+                searchInput.focus(); 
+            }
+        };
     </script>
   </body>
 </html>
